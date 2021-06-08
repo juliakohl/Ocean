@@ -1,4 +1,5 @@
 ﻿using Ocean.Data.Models.Domain;
+using Ocean.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Ocean.Services.IService
         Genre GetGenre(int id);
 
         IList<Music> GetMusics(int id);
+       
     }
 }

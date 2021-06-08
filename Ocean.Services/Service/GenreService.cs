@@ -1,6 +1,7 @@
 ﻿using Ocean.Data.DAO;
 using Ocean.Data.IDAO;
 using Ocean.Data.Models.Domain;
+using Ocean.Data.Repository;
 using Ocean.Services.IService;
 using System;
 using System.Collections.Generic;
@@ -19,18 +20,28 @@ namespace Ocean.Services.Service
         }
         public IList<Genre> GetGenres()
         {
-            return genreDAO.GetGenres();
+            using (var context = new OceanContext())
+            {
+                return genreDAO.GetGenres(context);
+            }
+                
         }
 
         public Genre GetGenre(int id)
         {
-            return genreDAO.GetGenre(id);
+            using (var context = new OceanContext())
+            {
+                return genreDAO.GetGenre(id, context);
+            }
         }
 
         public IList<Music> GetMusics(int id)
         {
-            IList<Music> music = genreDAO.GetMusics(id).ToList();
-            return music;
+            using (var context = new OceanContext())
+            {
+                IList<Music> music = genreDAO.GetMusics(id, context).ToList();
+                return music;
+            }
         }
     }
 }

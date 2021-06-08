@@ -17,19 +17,19 @@ namespace Ocean.Data.DAO
         {
             context = new OceanContext();
         }
-        public IList<Genre> GetGenres()
+        public IList<Genre> GetGenres(OceanContext context)
         {
             return context.Genres.ToList();
         }
 
-        public Genre GetGenre(int id)
+        public Genre GetGenre(int id, OceanContext context)
         {
             context.Genres.Include(g => g.Musics).ToList();
 
             return context.Genres.Find(id);
         }
 
-        public IList<Music> GetMusics(int id)
+        public IList<Music> GetMusics(int id, OceanContext context)
         {
             context.Genres.Include(g => g.Musics).ToList();
             Genre genre = context.Genres.Find(id);

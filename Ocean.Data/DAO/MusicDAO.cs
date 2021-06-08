@@ -18,7 +18,7 @@ namespace Ocean.Data.DAO
             context = new OceanContext();
         }
 
-        public Music GetMusic(int id)
+        public Music GetMusic(int id, OceanContext context)
         {
             return context.Musics.Find(id);
         }

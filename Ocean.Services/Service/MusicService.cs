@@ -1,6 +1,7 @@
 ﻿using Ocean.Data.DAO;
 using Ocean.Data.IDAO;
 using Ocean.Data.Models.Domain;
+using Ocean.Data.Repository;
 using Ocean.Services.IService;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,10 @@ namespace Ocean.Services.Service
 
         public Music GetMusic(int id)
         {
-            return musicDAO.GetMusic(id);
+            using (var context = new OceanContext())
+            {
+                return musicDAO.GetMusic(id, context);
+            }
         }
     }
 }
