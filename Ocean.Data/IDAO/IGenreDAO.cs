@@ -16,5 +16,7 @@ namespace Ocean.Data.IDAO
 
         IList<Music> GetMusics(int id, OceanContext context);
 
+        void AddMusicToCollection(Music music, Genre genre, OceanContext context);
+
     }
 }

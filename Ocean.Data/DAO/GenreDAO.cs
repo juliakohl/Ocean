@@ -35,5 +35,12 @@ namespace Ocean.Data.DAO
             Genre genre = context.Genres.Find(id);
             return (IList<Music>)genre.Musics;
         }
+
+        public void AddMusicToCollection(Music music, Genre genre, OceanContext context)
+        {
+            context.Genres.Find(genre.ID).Musics.Add(music);
+            context.Musics.Add(music);
+            genre.Musics.Add(music);
+        }
     }
 }

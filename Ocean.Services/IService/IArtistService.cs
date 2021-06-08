@@ -1,6 +1,5 @@
 ﻿using Ocean.Data.Models.Domain;
 using Ocean.Data.Repository;
-using Ocean.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Ocean.Services.IService
 {
-    public interface IMusicService
+    public interface IArtistService
     {
-        Music GetMusic(int id);
-        void AddMusic(MusicGenreArtist musicGenreArtist, string userId);
+        IList<Artist> GetArtists();
     }
 }

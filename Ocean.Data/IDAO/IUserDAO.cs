@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace Ocean.Data.IDAO
 {
-    public interface IMusicDAO
+    public interface IUserDAO
     {
-        Music GetMusic(int id, OceanContext context);
-
-        void AddMusic(Music music, OceanContext context);
+        void AddMusicToCollection(Music music, string UserId, OceanContext context);
     }
 }

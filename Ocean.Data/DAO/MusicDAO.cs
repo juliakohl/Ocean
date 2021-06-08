@@ -22,5 +22,10 @@ namespace Ocean.Data.DAO
         {
             return context.Musics.Find(id);
         }
+
+        public void AddMusic(Music music, OceanContext context)
+        {
+            context.Musics.Add(music);
+        }
     }
 }
